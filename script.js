@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Scroll suave para enlaces internos
+  // Scroll suave para enlaces internos (sin offset porque ya no hay nav)
   document.addEventListener("click", (e) => {
     const link = e.target.closest('a[href^="#"]');
     if (!link) return;
@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!target) return;
 
     e.preventDefault();
-    const offset = 70;
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    const top = target.getBoundingClientRect().top + window.scrollY;
 
     window.scrollTo({
       top,
@@ -22,10 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const guest = params.get("invitado");
   const reservedNameEl = document.getElementById("reserved-name");
-
-  if (reservedNameEl) {
-    reservedNameEl.textContent = guest || "Tu familia";
-  }
+  if (reservedNameEl) reservedNameEl.textContent = guest || "Tu familia";
 
   // Lógica del sobre + tarjetas + música
   const overlay = document.getElementById("invite-overlay");
@@ -47,15 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.classList.add("finished");
       if (audio) {
         audio.play().catch(() => {
-          // Si el navegador bloquea el autoplay, no pasa nada.
+          // Autoplay bloqueado: OK.
         });
       }
     });
   }
 
-  // ==========================
-  // Carrusel específico del HERO (portada)
-  // ==========================
+  // Carrusel HERO
   const heroSlides = document.querySelectorAll(".hero-slider .hero-slide");
   if (heroSlides.length > 1) {
     let heroIndex = 0;
@@ -63,12 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
       heroSlides[heroIndex].classList.remove("active");
       heroIndex = (heroIndex + 1) % heroSlides.length;
       heroSlides[heroIndex].classList.add("active");
-    }, 6000); // cambia de foto cada 6 segundos
+    }, 6000);
   }
 
-  // ==========================
-  // Sliders genéricos (historia, Zona Chic, etc.)
-  // ==========================
+  // Sliders genéricos
   const sliders = document.querySelectorAll("[data-slider]");
   sliders.forEach((slider) => {
     const slides = slider.querySelectorAll(".slide");
@@ -84,9 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, interval);
   });
 
-  // ==========================
   // Contador regresivo hasta 20 junio 2026, 13:00
-  // ==========================
   const targetDate = new Date("2026-06-20T13:00:00");
 
   const daysEl = document.getElementById("cd-days");
@@ -120,4 +110,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // Desplegable del código de descuento (Alojamiento)
+  const discountBtn = document.getElementById("discount-btn");
+  const discountPanel = document.getElementById("discount-panel");
+
+  if (discountBtn && discountPanel) {
+    discountBtn.addEventListener("click", () => {
+      const isOpen = discountBtn.getAttribute("aria-expanded") === "true";
+      discountBtn.setAttribute("aria-expanded", String(!isOpen));
+      discountPanel.hidden = isOpen;
+    });
+  }
+
+  // Typing al llegar a "Historia" (para TODOS los párrafos con data-typing)
+  const typingEls = document.querySelectorAll("[data-typing]");
+  if (typingEls.length) {
+    const items = Array.from(typingEls).map((el) => {
+      const text = el.textContent.trim();
+      el.textContent = "";
+      return { el, text };
+    });
+
+    let started = false;
+
+    const typeSequence = () => {
+      if (started) return;
+      started = true;
+
+      const speed = 30; // suave
+      const pauseBetween = 450;
+
+      const typeOne = (idx) => {
+        if (idx >= items.length) return;
+
+        const { el, text } = items[idx];
+        let i = 0;
+
+        const timer = setInterval(() => {
+          el.textContent += text.charAt(i);
+          i += 1;
+          if (i >= text.length) {
+            clearInterval(timer);
+            setTimeout(() => typeOne(idx + 1), pauseBetween);
+          }
+        }, speed);
+      };
+
+      typeOne(0);
+    };
+
+    // IntersectionObserver: empieza cuando entra el primero en pantalla
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              typeSequence();
+              io.disconnect();
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      io.observe(items[0].el);
+    } else {
+      // fallback
+      typeSequence();
+    }
+  }
 });

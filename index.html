@@ -22,6 +22,7 @@
         <span>¡Nos casamos!</span>
       </p>
 
+      <!-- IMPORTANTE: cards dentro del wrapper para posicionarlas "dentro del sobre" -->
       <div id="envelope-trigger" class="envelope-wrapper">
         <div class="envelope">
           <div class="envelope-back"></div>
@@ -31,65 +32,49 @@
           </div>
           <div class="envelope-seal"></div>
         </div>
+
+        <div id="invite-cards" class="invite-cards" aria-hidden="true">
+          <div class="invite-card reserved">
+            <p class="reserved-label">Reservado para:</p>
+            <p class="reserved-name" id="reserved-name">Tu familia</p>
+          </div>
+
+          <div class="invite-card photo">
+            <div class="photo-frame">
+              <img src="img/novios-sobre.jpg" alt="Diana y Sergio" />
+            </div>
+          </div>
+
+          <button id="btn-details" class="btn btn-outline btn-details" type="button">
+            Ver más detalles
+          </button>
+        </div>
       </div>
 
       <p class="invite-names">Diana &amp; Sergio</p>
-
-      <div id="invite-cards" class="invite-cards">
-        <div class="invite-card reserved">
-          <p class="reserved-label">Reservado para:</p>
-          <p class="reserved-name" id="reserved-name">Tu familia</p>
-        </div>
-        <div class="invite-card photo">
-          <div class="photo-frame">
-            <!-- Cambia esta imagen por una foto vuestra -->
-            <img src="img/novios-sobre.jpg" alt="Diana y Sergio" />
-          </div>
-        </div>
-        <button id="btn-details" class="btn btn-outline btn-details">
-          Ver más detalles
-        </button>
-      </div>
     </div>
   </div>
 
-  <header class="top-nav">
-    <div class="container nav-content">
-      <a href="#hero" class="logo">D &amp; S</a>
-      <nav>
-        <a href="#hero">Inicio</a>
-        <a href="#countdown">Cuenta atrás</a>
-        <a href="#story">Nuestra historia</a>
-        <a href="#details">Detalles</a>
-        <a href="#schedule">Programa</a>
-        <a href="#stay">Alojamiento</a>
-        <a href="#rsvp">Confirmar</a>
-        <a href="#faq">FAQs</a>
-      </nav>
+  <!-- HERO con carrusel de 3 fotos -->
+  <section id="hero" class="hero">
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: url('img/hero1.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('img/hero2.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('img/hero3.jpg');"></div>
     </div>
-  </header>
 
-<!-- HERO con carrusel de 3 fotos -->
-<section id="hero" class="hero">
-  <div class="hero-slider">
-    <div class="hero-slide active" style="background-image: url('img/hero1.jpg');"></div>
-    <div class="hero-slide" style="background-image: url('img/hero2.jpg');"></div>
-    <div class="hero-slide" style="background-image: url('img/hero3.jpg');"></div>
-  </div>
+    <div class="hero-overlay"></div>
 
-  <div class="hero-overlay"></div>
-
-  <div class="hero-content container">
-    <p class="hero-label">Nos casamos</p>
-    <h1 class="hero-title">Diana &amp; Sergio</h1>
-    <p class="hero-date">20 · Junio · 2026 — Zona Chic, Castejón (Navarra)</p>
-    <a href="#rsvp" class="btn btn-primary">Confirmar asistencia</a>
-    <p class="hero-sub">
-      Será un día muy especial y nos encantará compartirlo contigo.
-    </p>
-  </div>
-</section>
-
+    <div class="hero-content container">
+      <p class="hero-label">Nos casamos</p>
+      <h1 class="hero-title hero-title-white">Diana &amp; Sergio</h1>
+      <p class="hero-date">20 · Junio · 2026 — Zona Chic, Castejón (Navarra)</p>
+      <a href="#rsvp" class="btn btn-primary">Confirmar asistencia</a>
+      <p class="hero-sub">
+        Será un día muy especial y nos encantará compartirlo contigo.
+      </p>
+    </div>
+  </section>
 
   <!-- CUENTA ATRÁS -->
   <section id="countdown" class="section countdown-section">
@@ -127,24 +112,25 @@
   </section>
 
   <main>
-    <!-- NUESTRA HISTORIA con carrusel lateral -->
+    <!-- NUESTRA HISTORIA (sin título, typing al hacer scroll) -->
     <section id="story" class="section">
       <div class="container split">
         <div>
-          <h2>Nuestra historia</h2>
-          <p>
+          <p id="story-typing" data-typing>
             Esta historia no empieza en un cuento de hadas, sino en la vida real:
             trabajo, planes, risas, días buenos y días no tan buenos. Poco a poco,
             entre conversaciones, miradas y decisiones, Diana Nathaly Miranda Dután
             y Sergio Medina Fernández fueron construyendo algo que sí se parece bastante a un
             “para siempre”.
           </p>
-          <p>
+
+          <p data-typing>
             Después de muchos momentos compartidos, viajes, retos y sueños,
             hemos decidido dar el siguiente paso: celebrar nuestro amor junto a
             las personas que más queremos. Y tú formas parte de ese grupo.
           </p>
         </div>
+
         <div class="card story-photos">
           <div class="simple-slider" data-slider data-interval="6000">
             <img src="img/historia1.jpg" class="slide active" alt="Recuerdo 1">
@@ -185,12 +171,14 @@
 
           <article class="card">
             <h3>Ubicación</h3>
-            <p>
-              Puedes abrir directamente el mapa para ver cómo llegar:
-            </p>
-            <a class="btn btn-outline" href="https://maps.app.goo.gl/8poTSNY5BVhze1UZ9" target="_blank" rel="noreferrer">
-              Abrir en Google Maps
-            </a>
+            <div class="map-frame map-frame-inline">
+              <iframe
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Zona+Chic+Restaurante+y+Jard%C3%ADn+Castej%C3%B3n+Navarra&output=embed">
+              </iframe>
+            </div>
           </article>
         </div>
 
@@ -206,23 +194,6 @@
             <img src="img/zona3.jpg" class="slide" alt="Zona Chic 3">
             <img src="img/zona4.jpg" class="slide" alt="Zona Chic 4">
             <img src="img/zona5.jpg" class="slide" alt="Zona Chic 5">
-          </div>
-        </div>
-
-        <!-- MAPA INCRUSTADO -->
-        <div class="map-wrapper">
-          <h3>Cómo llegar</h3>
-          <p>
-            Aquí tienes un mapa para que puedas orientarte fácilmente. Puedes hacer zoom,
-            moverlo o abrirlo directamente en Google Maps.
-          </p>
-          <div class="map-frame">
-            <iframe
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Zona+Chic+Castej%C3%B3n+Navarra&output=embed">
-            </iframe>
           </div>
         </div>
       </div>
@@ -245,6 +216,7 @@
               <p>Te recomendamos llegar con un poco de margen para estar tranquilo y sin prisas.</p>
             </div>
           </div>
+
           <div class="timeline-item">
             <span class="time">13:30 h</span>
             <div class="timeline-content">
@@ -252,6 +224,7 @@
               <p>El momento más importante del día. Promesas, emoción y muchas sonrisas.</p>
             </div>
           </div>
+
           <div class="timeline-item">
             <span class="time">14:30 h</span>
             <div class="timeline-content">
@@ -259,6 +232,7 @@
               <p>Brindis, algo de picar y tiempo para saludar y hacer fotos con calma.</p>
             </div>
           </div>
+
           <div class="timeline-item">
             <span class="time">16:00–16:30 h</span>
             <div class="timeline-content">
@@ -269,6 +243,7 @@
               </p>
             </div>
           </div>
+
           <div class="timeline-item">
             <span class="time">18:30–19:00 h</span>
             <div class="timeline-content">
@@ -290,25 +265,24 @@
           <h2>Alojamiento cercano</h2>
           <p>
             Si vienes de fuera o quieres descansar después de la celebración,
-            te recomendamos que te alojes en el hotel de Zona Chic. Cuentas con un
-            descuento exclusivo para los invitados de la boda que podrás solicitar
-            al hacer tu reserva.
+            te recomendamos que te alojes en el hotel de Zona Chic.
           </p>
-          <p>
-            Zona Chic se encuentra en la N-232, km 83,400, por lo que cualquier
-            hotel cercano a este punto es una buena opción.
-          </p>
+
+          <div class="discount-accordion">
+            <button class="discount-toggle" type="button" id="discount-btn" aria-expanded="false">
+              Ver código de descuento
+            </button>
+            <div class="discount-panel" id="discount-panel" hidden>
+              <p class="discount-code"><strong>SERGIO&amp;DIANA26</strong></p>
+            </div>
+          </div>
         </div>
+
         <div class="card">
           <h3>Sugerencias generales</h3>
-          <ul class="data-list">
-            <li><span>Castejón</span><span>Zona más cercana al lugar</span></li>
-            <li><span>Tudela</span><span>Más oferta de hoteles</span></li>
-            <li><span>Otros pueblos cercanos</span><span>Busca por distancia a Zona Chic</span></li>
-          </ul>
           <p class="note">
-            Puedes usar Booking, Airbnb u otras plataformas para encontrar un
-            hotel o apartamento que se ajuste a lo que necesitas.
+            Estamos organizando una línea de autobuses desde <strong>Arguedas</strong> y <strong>Marcilla</strong>.
+            Cuando tengamos más información, comunicaremos horarios y puntos de recogida.
           </p>
         </div>
       </div>
@@ -318,7 +292,7 @@
     <section id="rsvp" class="section section-highlight rsvp-section">
       <div class="rsvp-overlay"></div>
       <div class="container narrow rsvp-inner">
-        <h2>Confirmar asistencia</h2>
+        <h2 class="rsvp-title">Confirmar asistencia</h2>
         <p class="center">
           Te agradeceríamos que nos confirmaras tu asistencia antes del
           <strong>20 de abril de 2026</strong>.
@@ -329,7 +303,6 @@
         </p>
 
         <div class="center">
-          <!-- TODO: Sustituye el número de teléfono y el texto del mensaje en el enlace de WhatsApp -->
           <a
             href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20Diana%20y%20Sergio."
             target="_blank"
@@ -339,64 +312,6 @@
             Confirmar asistencia
           </a>
         </div>
-
-        <p class="center small">
-          Una vez confirmes, nuestro asistente de bodas te ayudará a resolver
-          dudas más específicas sobre acompañantes, menús especiales, alergias,
-          intolerancias y cualquier detalle que necesites.
-        </p>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <div class="container narrow">
-        <h2>Preguntas frecuentes</h2>
-
-        <details class="faq-item">
-          <summary>¿Puedo ir con acompañante?</summary>
-          <p>
-            Sabemos que esta es una de las dudas más habituales. Después de que
-            confirmes tu asistencia por WhatsApp, nuestro asistente de bodas te
-            indicará si en tu caso está contemplado llevar acompañante y, si es
-            así, tomará todos los datos necesarios.
-          </p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Se permiten niños?</summary>
-          <p>
-            El tema de los niños también se gestiona de forma personalizada.
-            Cuando nos confirmes tu asistencia, podrás indicar si tienes peques
-            y nuestro asistente te explicará las opciones disponibles según cada caso.
-          </p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Hay aparcamiento en el lugar?</summary>
-          <p>
-            Zona Chic dispone de zona de aparcamiento para los invitados. Aun así,
-            si puedes compartir coche con alguien, siempre es una buena idea.
-          </p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Hay menús vegetarianos, veganos o adaptados a intolerancias?</summary>
-          <p>
-            Sí, habrá opciones adaptadas. En el momento de confirmar tu asistencia,
-            nuestro asistente de bodas te preguntará por alergias, intolerancias
-            o preferencias (vegetariano, vegano, etc.) y lo gestionará todo por ti.
-          </p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Tengo otra duda que no aparece aquí…</summary>
-          <p>
-            No te preocupes. Puedes escribirnos a través del mismo chat de WhatsApp
-            de confirmación y nuestro asistente de bodas te ayudará con cualquier
-            cosa que necesites.
-          </p>
-        </details>
       </div>
     </section>
   </main>
@@ -408,9 +323,9 @@
     </div>
   </footer>
 
-  <!-- Música (añadirás audio/musica.mp3 más adelante) -->
+  <!-- Música -->
   <audio id="bg-music" loop>
-    <source src="audio/musica.mp3" type="audio/mpeg" />
+    <source src="audio/musica.MP3" type="audio/mpeg" />
   </audio>
 
   <script src="script.js"></script>

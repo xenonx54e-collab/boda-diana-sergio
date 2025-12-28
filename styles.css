@@ -101,8 +101,7 @@ h2 {
   color: var(--text-muted);
 }
 
-/* Layout dividido (texto / tarjeta, texto / fotos) */
-
+/* Layout dividido */
 .split {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -114,54 +113,6 @@ h2 {
   .split {
     grid-template-columns: 1fr;
   }
-}
-
-/* ===========================
-   NAVEGACIÓN SUPERIOR
-   =========================== */
-
-.top-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(250, 244, 236, 0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(214, 182, 142, 0.5);
-}
-
-.nav-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 10px 0;
-}
-
-.logo {
-  font-family: "Playfair Display", serif;
-  font-size: 1.2rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--deep);
-  text-decoration: none;
-}
-
-.top-nav nav {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.top-nav nav a {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-.top-nav nav a:hover {
-  color: var(--deep);
 }
 
 /* ===========================
@@ -205,10 +156,8 @@ h2 {
 }
 
 /* ===========================
-   HERO (PORTADA) + SLIDER
+   HERO + SLIDER
    =========================== */
-
-/* ===== HERO PORTADA ===== */
 
 .hero {
   position: relative;
@@ -227,7 +176,6 @@ h2 {
   overflow: hidden;
 }
 
-/* cada slide es un fondo diferente */
 .hero-slide {
   position: absolute;
   inset: 0;
@@ -270,6 +218,12 @@ h2 {
   margin-bottom: 8px;
 }
 
+/* ✅ forzamos blanco aquí sin tocar tu paleta global */
+.hero-title-white {
+  color: #fff;
+  text-shadow: 0 10px 28px rgba(0,0,0,0.35);
+}
+
 .hero-date {
   font-size: 1rem;
   margin-bottom: 20px;
@@ -285,7 +239,6 @@ h2 {
 }
 
 /* Slider genérico */
-
 .simple-slider {
   position: relative;
   width: 100%;
@@ -385,7 +338,7 @@ h2 {
 }
 
 /* ===========================
-   TARJETAS Y LISTAS DE DATOS
+   TARJETAS
    =========================== */
 
 .card {
@@ -396,48 +349,15 @@ h2 {
   border: 1px solid rgba(214, 182, 142, 0.7);
 }
 
-.data-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 10px;
-}
-
-.data-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 0.9rem;
-  padding: 4px 0;
-  border-bottom: 1px dashed rgba(214, 182, 142, 0.6);
-}
-
-.data-list li span:first-child {
-  color: var(--text-muted);
-}
-
-.data-list li span:last-child {
-  font-weight: 600;
-  color: var(--deep);
-}
-
-.note {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 8px;
-}
-
-/* "Nuestra historia" fotos */
-
+/* Nuestra historia fotos */
 .story-photos {
   padding: 0;
   overflow: hidden;
 }
-
 .story-photos .simple-slider {
   height: 260px;
   border-radius: 20px;
 }
-
 @media (max-width: 900px) {
   .story-photos .simple-slider {
     height: 220px;
@@ -478,11 +398,6 @@ h2 {
 }
 
 /* Mapa */
-
-.map-wrapper {
-  margin-top: 40px;
-}
-
 .map-frame {
   margin-top: 12px;
   border-radius: 20px;
@@ -495,6 +410,17 @@ h2 {
   width: 100%;
   height: 280px;
   border: 0;
+}
+
+/* En tarjeta (Ubicación) un pelín menos margen */
+.map-frame-inline {
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ===========================
@@ -512,16 +438,9 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* ✅ quitar puntos */
 .timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -11px;
-  top: 4px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid var(--accent);
+  display: none;
 }
 
 .timeline-item:last-child {
@@ -541,10 +460,46 @@ h2 {
 }
 
 /* ===========================
-   ALOJAMIENTO
+   ALOJAMIENTO - DESCUENTO
    =========================== */
 
-/* Ya usa .split y .card */
+.discount-accordion {
+  margin-top: 14px;
+  max-width: 360px;
+}
+
+.discount-toggle {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(214, 182, 142, 0.9);
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--deep);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+}
+
+.discount-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.discount-panel {
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(214, 182, 142, 0.75);
+  padding: 12px 14px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+}
+
+.discount-code {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--deep);
+  text-align: center;
+}
 
 /* ===========================
    RSVP CON FOTO DE FONDO
@@ -573,33 +528,10 @@ h2 {
   z-index: 1;
 }
 
-/* ===========================
-   FAQ
-   =========================== */
-
-.faq-item {
-  margin-bottom: 10px;
-  border-radius: 14px;
-  border: 1px solid rgba(214, 182, 142, 0.7);
-  padding: 8px 14px;
-  background: #fff;
-}
-
-.faq-item summary {
-  cursor: pointer;
-  list-style: none;
-  font-weight: 600;
-  color: var(--deep);
-}
-
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-item p {
-  margin-top: 6px;
-  font-size: 0.9rem;
-  color: var(--text-muted);
+/* ✅ título blanco */
+.rsvp-title {
+  color: #fff;
+  text-shadow: 0 10px 28px rgba(0,0,0,0.35);
 }
 
 /* ===========================
@@ -630,7 +562,11 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px 16px;
+
+  /* ✅ móvil real: evita saltos por barras del navegador */
+  min-height: 100svh;
+
+  padding: 28px 16px;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
@@ -640,22 +576,22 @@ h2 {
   pointer-events: none;
 }
 
+/* ✅ quitamos el recuadro borroso */
 .invite-inner {
   width: min(420px, 100%);
   text-align: center;
-  padding: 20px 18px 26px;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(12px);
-  border-radius: 24px;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
-  border: 1px solid rgba(212, 181, 142, 0.8);
+  padding: 12px 10px 10px;
+  background: transparent;
+  backdrop-filter: none;
+  border: 0;
+  box-shadow: none;
 }
 
 .invite-top-text {
   font-family: "Playfair Display", serif;
   font-size: 1.05rem;
   color: var(--deep);
-  margin: 0 0 18px;
+  margin: 0 0 14px;
 }
 
 .invite-top-text span {
@@ -665,31 +601,30 @@ h2 {
   text-transform: uppercase;
 }
 
-/* Nombre grande */
-
 .invite-names {
   font-family: "Playfair Display", serif;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin: 22px 0 4px;
+  margin: 18px 0 0;
   color: var(--deep);
-  font-size: 1.6rem;
+  font-size: 1.7rem; /* ✅ un pelín más grande */
 }
 
 /* SOBRE */
 
 .envelope-wrapper {
-  margin: 10px auto 8px;
+  margin: 10px auto 0;
   width: min(320px, 100%);
   cursor: pointer;
   perspective: 1200px;
+  position: relative; /* ✅ para posicionar tarjetas dentro */
 }
 
 .envelope {
   position: relative;
   width: 100%;
   padding-top: 65%;
-  border-radius: 8px;            /* menos redondo */
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 16px 35px rgba(102, 59, 26, 0.35);
 }
@@ -705,7 +640,7 @@ h2 {
   position: absolute;
   inset: 35% 0 0 0;
   background: linear-gradient(135deg, #c55a2c 0%, #b34b24 100%);
-  border-radius: 8px 8px 4px 4px;  /* esquinas más rectas */
+  border-radius: 8px 8px 4px 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -735,7 +670,7 @@ h2 {
 }
 
 .envelope-click {
-  font-size: 0.4rem;
+  font-size: 0.72rem; /* ✅ tamaño correcto en móvil/desktop */
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: #fdf3e3;
@@ -744,8 +679,6 @@ h2 {
 .invite-overlay.opened .envelope-flap {
   transform: rotateX(-180deg);
 }
-
-/* ocultar botón dorado al abrir */
 
 .invite-overlay.opened .envelope-seal {
   opacity: 0;
@@ -759,10 +692,18 @@ h2 {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* TARJETAS QUE APARECEN AL ABRIR */
-
+/* TARJETAS DENTRO DEL SOBRE */
 .invite-cards {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 92%;
+  max-width: 320px;
+
+  transform: translate(-50%, -52%);
+  opacity: 0;
+  pointer-events: none;
+
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   grid-template-rows: auto auto;
@@ -771,18 +712,8 @@ h2 {
     "btn      photo";
   column-gap: 12px;
   row-gap: 10px;
-  justify-content: center;
-  align-items: flex-start;
 
-  max-width: 320px;              /* mismo ancho que el sobre */
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-
-  opacity: 0;
-  transform: translateY(-240px);  /* las subimos: encima del sobre */
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.35s ease;
 }
 
 .invite-overlay.cards-visible .invite-cards {
@@ -799,13 +730,13 @@ h2 {
 }
 
 .invite-card.reserved {
-  min-width: 0;        /* para que no fuerce más ancho que el grid */
   grid-area: reserved;
+  min-width: 0;
 }
 
 .invite-card.photo {
-  padding: 6px;
   grid-area: photo;
+  padding: 8px;
 }
 
 .reserved-label {
@@ -823,13 +754,15 @@ h2 {
   font-size: 0.9rem;
 }
 
+/* ✅ sin marco blanco */
 .photo-frame {
   width: 120px;
   height: 140px;
   overflow: hidden;
   border-radius: 12px;
-  border: 4px solid #fff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border: 0;
+  background: transparent;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.26);
 }
 
 .photo-frame img {
@@ -846,13 +779,20 @@ h2 {
   justify-self: stretch;
 }
 
-/* Ajuste móvil overlay */
+/* ✅ botón visible sobre el sobre */
+#btn-details {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
+  font-weight: 500;
+}
 
-@media (max-width: 400px) {
-  .invite-inner {
-    width: 100%;
-  }
+#btn-details:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+}
 
+/* Ajustes responsive */
+@media (max-width: 420px) {
   .invite-cards {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -860,26 +800,18 @@ h2 {
       "photo"
       "reserved"
       "btn";
-    transform: translateY(-70px);
+    row-gap: 10px;
+    transform: translate(-50%, -50%);
   }
 
   .photo-frame {
-    width: 100px;
-    height: 120px;
+    width: 110px;
+    height: 132px;
+    margin: 0 auto;
   }
 
-  .cards-grid {
-    grid-template-columns: 1fr;
+  .invite-names {
+    font-size: 1.65rem;
+    letter-spacing: 0.18em;
   }
-}
-/* Botón "Ver más detalles" siempre visible sobre el sobre */
-#btn-details {
-  color: #ffffff !important;      /* texto blanco */
-  border-color: rgba(255,255,255,0.75) !important;  /* borde blanco suave */
-  font-weight: 500;
-}
-
-#btn-details:hover {
-  background: rgba(255,255,255,0.15);  /* ligero brillo al pasar el ratón */
-  color: #ffffff !important;
 }
