@@ -815,3 +815,8 @@ h2 {
     letter-spacing: 0.18em;
   }
 }
+@media (max-width: 480px) {
+  .invite-names {
+    margin-top: 42px;
+  }
+}
