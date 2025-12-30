@@ -853,3 +853,16 @@ h2 {
     letter-spacing: 0.1em;
   }
 }
+/* ===========================
+   DETALLES: UNA SOLA TARJETA
+   =========================== */
+
+.cards-grid.single-card {
+  grid-template-columns: 1fr;
+}
+
+.detail-location {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
