@@ -868,6 +868,6 @@ h2 {
 }
 @media (max-width: 480px) {
   .btn-details {
-    margin-top: 0.3rem; /* ≈ 3mm hacia abajo */
+    margin-top: 0.7rem; /* ≈ 3mm hacia abajo */
   }
 }
