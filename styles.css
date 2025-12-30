@@ -866,3 +866,8 @@ h2 {
   font-size: 0.9rem;
   color: var(--text-muted);
 }
+@media (max-width: 480px) {
+  .btn-details {
+    margin-top: 0.3rem; /* ≈ 3mm hacia abajo */
+  }
+}
