@@ -967,23 +967,42 @@ h2 {
    DECORACIÓN HISTORIA
    =========================== */
 
+
 .story-section {
   position: relative;
   overflow: hidden;
 }
 
-.story-section::before {
+.story-section .container{
+  position: relative;
+}
+
+.story-section .container::before {
   content: "";
   position: absolute;
-  top: -60px;
+  top: -80px;
   right: -40px;
-  width: 300px;
-  height: 300px;
+  width: 360px;
+  height: 360px;
   background: url("img/deco-story-top.png") no-repeat center;
   background-size: contain;
-  opacity: 0.15;
+  opacity: 0.18;
   pointer-events: none;
+  z-index: 0;
 }
+
+.story-section .container > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* aseguramos que el contenido esté encima */
+.story-section .container > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ===========================
    DECORACIÓN PROGRAMA
    =========================== */
@@ -1036,14 +1055,30 @@ h2 {
   pointer-events: none;
 }
 @media (max-width: 480px) {
+
+  /* Cuenta atrás */
   .countdown-section::before,
-  .countdown-section::after,
-  .story-section::before,
+  .countdown-section::after {
+    width: 360px;
+    height: 360px;
+    opacity: 0.22;
+  }
+
+  /* Historia */
+  .story-section .container::before {
+    width: 360px;
+    height: 360px;
+    opacity: 0.22;
+    top: -100px;
+    right: -60px;
+  }
+
+  /* Programa */
   #schedule::before,
   #schedule::after,
   #schedule .timeline::after {
-    opacity: 0.1;
-    width: 200px;
-    height: 200px;
+    width: 360px;
+    height: 360px;
+    opacity: 0.22;
   }
 }
