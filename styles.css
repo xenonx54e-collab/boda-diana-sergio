@@ -221,7 +221,7 @@ h2 {
 /* ✅ forzamos blanco aquí sin tocar tu paleta global */
 .hero-title-white {
   color: #fff;
-  text-shadow: 0 10px 28px rgba(0,0,0,0.35);
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
 
 .hero-date {
@@ -607,7 +607,7 @@ h2 {
   text-transform: uppercase;
   margin: 18px 0 0;
   color: var(--deep);
-  font-size: 1.7rem; /* ✅ un pelín más grande */
+  font-size: 1.7rem;
 }
 
 /* SOBRE */
@@ -617,7 +617,7 @@ h2 {
   width: min(320px, 100%);
   cursor: pointer;
   perspective: 1200px;
-  position: relative; /* ✅ para posicionar tarjetas dentro */
+  position: relative;
 }
 
 .envelope {
@@ -655,22 +655,33 @@ h2 {
   transition: transform 0.6s ease-in-out;
 }
 
+/* ✅ SELLO COMO IMAGEN (BOTÓN) */
 .envelope-seal {
   position: absolute;
   left: 50%;
   top: 38%;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #f7e0a6, #c79a4b);
   transform: translateX(-50%);
-  box-shadow: 0 0 0 3px rgba(114, 74, 16, 0.3), 0 8px 14px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(97, 62, 16, 0.8);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.envelope-seal img {
+  width: 45px; /* ajusta tamaño aquí */
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.envelope-seal:hover img {
+  transform: scale(1.05);
 }
 
 .envelope-click {
-  font-size: 0.72rem; /* ✅ tamaño correcto en móvil/desktop */
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: #fdf3e3;
@@ -680,9 +691,11 @@ h2 {
   transform: rotateX(-180deg);
 }
 
+/* ✅ ocultar sello al abrir */
 .invite-overlay.opened .envelope-seal {
   opacity: 0;
-  transform: translateX(-50%) translateY(4px) scale(0.7);
+  pointer-events: none;
+  transform: translateX(-50%) scale(0.85);
 }
 
 .invite-overlay.opened .envelope-click,
@@ -815,11 +828,13 @@ h2 {
     letter-spacing: 0.18em;
   }
 }
+
 @media (max-width: 480px) {
   .invite-names {
     margin-top: 42px;
   }
 }
+
 @media (max-width: 480px) {
   .hero-title {
     display: flex;
