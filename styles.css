@@ -1059,8 +1059,8 @@ h2 {
   /* Cuenta atrás */
   .countdown-section::before,
   .countdown-section::after {
-    width: 360px;
-    height: 360px;
+    width: 560px;
+    height: 560px;
     opacity: 0.22;
   }
 
@@ -1077,8 +1077,8 @@ h2 {
   #schedule::before,
   #schedule::after,
   #schedule .timeline::after {
-    width: 360px;
-    height: 360px;
+    width:660px;
+    height: 660px;
     opacity: 0.22;
   }
 }
