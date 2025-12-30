@@ -1041,3 +1041,26 @@ h2 {
     bottom: -180px;
   }
 }
+/* Botón reserva hotel */
+.btn-reserva {
+  margin-top: 14px;
+  width: 100%;
+  justify-content: center;
+}
+@media (max-width: 480px) {
+  .btn-reserva {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+/* Alojamiento: dos columnas en escritorio */
+@media (min-width: 901px) {
+  #stay .split {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: flex-start;
+  }
+}
+.btn-book {
+  width: 100%;
+  margin-top: 12px;
+}
