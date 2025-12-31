@@ -1064,3 +1064,41 @@ h2 {
   width: 100%;
   margin-top: 12px;
 }
+@media (max-width: 480px) {
+
+  /* PROGRAMA - imagen 1 (arriba) */
+  #schedule::before {
+    width: 600px;
+    height: 600px;
+    opacity: 0.22;
+
+    top: -80px;    /* ↑↓ */
+    left: 200;  /* ←→ */
+    right: auto;   /* importante para que mande left */
+    transform: none;
+  }
+
+  /* PROGRAMA - imagen 2 (centro) */
+  #schedule::after {
+    width: 600px;
+    height: 600px;
+    opacity: 0.22;
+
+    top: 42%;      /* ↑↓ (prueba 35% - 55%) */
+    right: 100px; /* ←→ */
+    left: auto;    /* importante para que mande right */
+    transform: translateY(-50%);
+  }
+
+  /* PROGRAMA - imagen 3 (abajo) */
+  #schedule .timeline::after {
+    width: 520px;
+    height: 520px;
+    opacity: 0.22;
+
+    bottom: -120px; /* ↑↓ */
+    left: 50%;      /* ←→ (50% centra) */
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
