@@ -1141,7 +1141,7 @@ h2 {
     height: 470px;
     opacity: 0.22;
 
-    top: -150px;    /* ↑↓ */
+    top: -30px;    /* ↑↓ */
     left: 50%;      /* ←→ */
     transform: translateX(-50%);
   }
