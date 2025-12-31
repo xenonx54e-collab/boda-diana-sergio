@@ -1128,7 +1128,7 @@ h2 {
     opacity: 0.22;
 
     bottom: -160px; /* ↑↓ */
-    left: 70%;      /* ←→ */
+    left: 30%;      /* ←→ */
     transform: translateX(-50%);
   }
 
@@ -1137,8 +1137,8 @@ h2 {
      deco-story-top.png
      =========================== */
   .story-section::before {
-    width: 520px;
-    height: 520px;
+    width: 470px;
+    height: 470px;
     opacity: 0.22;
 
     top: -80px;    /* ↑↓ */
