@@ -1127,7 +1127,7 @@ h2 {
     height: 560px;
     opacity: 0.22;
 
-    bottom: -160px; /* ↑↓ */
+    bottom: -190px; /* ↑↓ */
     left: 30%;      /* ←→ */
     transform: translateX(-50%);
   }
