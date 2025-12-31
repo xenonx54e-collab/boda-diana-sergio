@@ -1073,7 +1073,7 @@ h2 {
     opacity: 0.22;
 
     top: -80px;    /* ↑↓ */
-    left: 200;  /* ←→ */
+    left: 300;  /* ←→ */
     right: auto;   /* importante para que mande left */
     transform: none;
   }
@@ -1084,8 +1084,8 @@ h2 {
     height: 600px;
     opacity: 0.22;
 
-    top: 42%;      /* ↑↓ (prueba 35% - 55%) */
-    right: 100px; /* ←→ */
+    top: 37%;      /* ↑↓ (prueba 35% - 55%) */
+    right: 50px; /* ←→ */
     left: auto;    /* importante para que mande right */
     transform: translateY(-50%);
   }
@@ -1101,4 +1101,49 @@ h2 {
     right: auto;
     transform: translateX(-50%);
   }
+}
+@media (max-width: 480px) {
+
+  /* ===========================
+     CUENTA ATRÁS – IMAGEN SUPERIOR
+     deco-countdown-top.png
+     =========================== */
+  .countdown-section::before {
+    width: 560px;
+    height: 560px;
+    opacity: 0.22;
+
+    top: -120px;    /* ↑↓ */
+    left: 50%;      /* ←→ (50% = centro) */
+    transform: translateX(-50%);
+  }
+
+  /* ===========================
+     CUENTA ATRÁS – IMAGEN INFERIOR
+     deco-countdown-bottom.png
+     =========================== */
+  .countdown-section::after {
+    width: 560px;
+    height: 560px;
+    opacity: 0.22;
+
+    bottom: -160px; /* ↑↓ */
+    left: 70%;      /* ←→ */
+    transform: translateX(-50%);
+  }
+
+  /* ===========================
+     HISTORIA – IMAGEN SUPERIOR
+     deco-story-top.png
+     =========================== */
+  .story-section::before {
+    width: 520px;
+    height: 520px;
+    opacity: 0.22;
+
+    top: -120px;    /* ↑↓ */
+    left: 50%;      /* ←→ */
+    transform: translateX(-50%);
+  }
+
 }
