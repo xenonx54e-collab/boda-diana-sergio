@@ -1152,3 +1152,17 @@ h2 {
     margin-top: 5mm;
   }
 }
+/* Botón "Ver más detalles" más visible */
+#btn-details {
+  background: var(--accent);
+  color: #fff !important;
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(197, 90, 44, 0.45);
+}
+
+/* Hover (desktop) */
+#btn-details:hover {
+  background: #b24d25;
+  box-shadow: 0 10px 26px rgba(197, 90, 44, 0.55);
+}
