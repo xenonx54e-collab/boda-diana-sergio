@@ -1204,7 +1204,7 @@ h2 {
     position: absolute;
     inset: 0;                   /* 🔑 NO sobresale */
     background: url("img/deco-photo-frame.png") no-repeat center;
-    background-size: 80%;
+    background-size: 100%;
     opacity: 0.28;
     pointer-events: none;
     z-index: 0;
