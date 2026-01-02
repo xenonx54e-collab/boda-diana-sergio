@@ -1148,11 +1148,6 @@ h2 {
 
 }
 @media (max-width: 480px) {
-  .invite-card.reserved {
-    margin-top: 5mm; /* baja 5 milímetros */
-  }
-}
-@media (max-width: 480px) {
   .invite-card.photo {
     margin-top: 5mm;
   }
