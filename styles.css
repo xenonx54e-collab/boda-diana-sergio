@@ -1195,15 +1195,17 @@ h2 {
 
   .invite-card.photo {
     position: relative;
+    overflow: hidden;           /* 🔑 CLAVE: recorte */
+    border-radius: 14px;        /* mismo radio que la tarjeta */
   }
 
   .invite-card.photo::before {
     content: "";
     position: absolute;
-    inset: -18px;               /* cuánto sobresale */
+    inset: 0;                   /* 🔑 NO sobresale */
     background: url("img/deco-photo-frame.png") no-repeat center;
     background-size: contain;
-    opacity: 0.28;              /* visibilidad */
+    opacity: 0.28;
     pointer-events: none;
     z-index: 0;
   }
