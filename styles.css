@@ -1152,17 +1152,24 @@ h2 {
     margin-top: 5mm;
   }
 }
-/* Botón "Ver más detalles" más visible */
+/* Botón "Ver más detalles" – sin fondo, más visible */
 #btn-details {
-  background: var(--accent);
-  color: #fff !important;
-  border: none;
+  background: transparent;
+  color: var(--accent) !important;
+  border: 2px solid var(--accent);
   font-weight: 600;
-  box-shadow: 0 8px 20px rgba(197, 90, 44, 0.45);
+  letter-spacing: 0.04em;
+  box-shadow: 0 6px 18px rgba(197, 90, 44, 0.25);
 }
 
 /* Hover (desktop) */
 #btn-details:hover {
-  background: #b24d25;
-  box-shadow: 0 10px 26px rgba(197, 90, 44, 0.55);
+  box-shadow: 0 8px 22px rgba(197, 90, 44, 0.4);
+  transform: translateY(-1px);
+}
+@media (max-width: 480px) {
+  #btn-details {
+    font-size: 0.9rem;
+    border-width: 2.5px;
+  }
 }
