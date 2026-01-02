@@ -1084,8 +1084,8 @@ h2 {
     height: 600px;
     opacity: 0.22;
 
-    top: 70%;      /* ↑↓ (prueba 35% - 55%) */
-    right: 70px; /* ←→ */
+    top: 90%;      /* ↑↓ (prueba 35% - 55%) */
+    right: 0px; /* ←→ */
     left: auto;    /* importante para que mande right */
     transform: translateY(-50%);
   }
