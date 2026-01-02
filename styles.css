@@ -1084,7 +1084,7 @@ h2 {
     height: 600px;
     opacity: 0.22;
 
-    top: 90%;      /* ↑↓ (prueba 35% - 55%) */
+    top: 70%;      /* ↑↓ (prueba 35% - 55%) */
     right: 0px; /* ←→ */
     left: auto;    /* importante para que mande right */
     transform: translateY(-50%);
@@ -1185,5 +1185,31 @@ h2 {
   #btn-details:hover {
     box-shadow: 0 8px 22px rgba(197, 90, 44, 0.45);
     transform: translateY(-1px);
+  }
+}
+/* ===========================
+   DECORACIÓN FOTO SOBRE (SOLO MÓVIL)
+   =========================== */
+
+@media (max-width: 480px) {
+
+  .invite-card.photo {
+    position: relative;
+  }
+
+  .invite-card.photo::before {
+    content: "";
+    position: absolute;
+    inset: -18px;               /* cuánto sobresale */
+    background: url("img/deco-photo-frame.png") no-repeat center;
+    background-size: contain;
+    opacity: 0.28;              /* visibilidad */
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .invite-card.photo .photo-frame {
+    position: relative;
+    z-index: 1;
   }
 }
