@@ -1152,24 +1152,21 @@ h2 {
     margin-top: 5mm;
   }
 }
-/* Botón "Ver más detalles" – sin fondo, más visible */
-#btn-details {
-  background: transparent;
-  color: var(--accent) !important;
-  border: 2px solid var(--accent);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  box-shadow: 0 6px 18px rgba(197, 90, 44, 0.25);
-}
-
-/* Hover (desktop) */
-#btn-details:hover {
-  box-shadow: 0 8px 22px rgba(197, 90, 44, 0.4);
-  transform: translateY(-1px);
-}
+/* ===========================
+   BOTÓN "VER MÁS DETALLES" – SOLO MÓVIL
+   =========================== */
 @media (max-width: 480px) {
   #btn-details {
-    font-size: 0.9rem;
-    border-width: 2.5px;
+    background: transparent;
+    color: var(--accent) !important;
+    border: 2px solid var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    box-shadow: 0 6px 18px rgba(197, 90, 44, 0.28);
+  }
+
+  #btn-details:hover {
+    box-shadow: 0 8px 22px rgba(197, 90, 44, 0.45);
+    transform: translateY(-1px);
   }
 }
