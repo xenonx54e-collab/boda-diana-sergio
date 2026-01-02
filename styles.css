@@ -1170,3 +1170,20 @@ h2 {
     transform: translateY(-1px);
   }
 }
+@media (max-width: 480px) {
+  #btn-details {
+    padding: 7px 18px;     /* antes era aprox 10px 22px → ↓ ~3 mm */
+    font-size: 0.82rem;    /* ligeramente más pequeño */
+    border-width: 2px;
+    background: transparent;
+    color: var(--accent) !important;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    box-shadow: 0 6px 18px rgba(197, 90, 44, 0.28);
+  }
+
+  #btn-details:hover {
+    box-shadow: 0 8px 22px rgba(197, 90, 44, 0.45);
+    transform: translateY(-1px);
+  }
+}
