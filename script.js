@@ -181,3 +181,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+// ================================
+// INVITADOS POR LINK (guest=...)
+// ================================
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const rawGuest =
+    params.get("guest") ||
+    params.get("invitado") ||
+    params.get("para");
+
+  const guestName = rawGuest ? rawGuest.trim() : "";
+
+  // Texto "Reservado para"
+  const reservedEl = document.getElementById("reserved-name");
+  if (reservedEl && guestName) {
+    reservedEl.textContent = guestName;
+  }
+
+  // WhatsApp
+  const phone = "34XXXXXXXXX"; // ← PON AQUÍ TU NÚMERO REAL
+
+  const message = guestName
+    ? `Hola, soy ${guestName} y quiero confirmar mi asistencia a la boda de Diana y Sergio.`
+    : `Hola, quiero confirmar mi asistencia a la boda de Diana y Sergio.`;
+
+  const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+  const waBtn = document.getElementById("rsvp-wa");
+  if (waBtn) {
+    waBtn.href = waUrl;
+  }
+})();
