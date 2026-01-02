@@ -1072,8 +1072,8 @@ h2 {
     height: 600px;
     opacity: 0.22;
 
-    top: -75px;    /* ↑↓ */
-    left: 30px;  /* ←→ */
+    top: -100px;    /* ↑↓ */
+    left: 0px;  /* ←→ */
     right: auto;   /* importante para que mande left */
     transform: none;
   }
@@ -1084,8 +1084,8 @@ h2 {
     height: 600px;
     opacity: 0.22;
 
-    top: 37%;      /* ↑↓ (prueba 35% - 55%) */
-    right: 50px; /* ←→ */
+    top: 70%;      /* ↑↓ (prueba 35% - 55%) */
+    right: 70px; /* ←→ */
     left: auto;    /* importante para que mande right */
     transform: translateY(-50%);
   }
