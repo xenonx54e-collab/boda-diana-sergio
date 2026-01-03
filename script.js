@@ -181,9 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-// ================================
+// ==============================
 // INVITADOS POR LINK (guest=...)
-// ================================
+// ==============================
 (function () {
   const params = new URLSearchParams(window.location.search);
   const rawGuest =
@@ -193,14 +193,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const guestName = rawGuest ? rawGuest.trim() : "";
 
-  // Texto "Reservado para"
+  // "Reservado para"
   const reservedEl = document.getElementById("reserved-name");
   if (reservedEl && guestName) {
     reservedEl.textContent = guestName;
   }
 
-  // WhatsApp
-  const phone = "34XXXXXXXXX"; // ← PON AQUÍ TU NÚMERO REAL
+  // WhatsApp (IMPORTANTE: solo números, ejemplo España: 346XXXXXXXX)
+  const phone = "34618717016"; // <- PON AQUÍ TU NÚMERO REAL
 
   const message = guestName
     ? `Hola, soy ${guestName} y quiero confirmar mi asistencia a la boda de Diana y Sergio.`
