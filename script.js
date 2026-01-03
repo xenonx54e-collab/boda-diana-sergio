@@ -193,14 +193,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const guestName = rawGuest ? rawGuest.trim() : "";
 
-  // "Reservado para"
-  const reservedEl = document.getElementById("reserved-name");
-  if (reservedEl && guestName) {
-    reservedEl.textContent = guestName;
+  function applyGuestName() {
+    const reservedEl = document.getElementById("reserved-name");
+    if (reservedEl && guestName) {
+      reservedEl.textContent = guestName;
+    }
+  }
+
+  // Aplica al cargar (por si ya está en DOM)
+  applyGuestName();
+
+  // Re-aplica un instante después (por si hay scripts que pisan el texto)
+  setTimeout(applyGuestName, 50);
+  setTimeout(applyGuestName, 200);
+
+  // Re-aplica al abrir el sobre (por si tu JS cambia el contenido al abrir)
+  const envelopeTrigger = document.getElementById("envelope-trigger");
+  if (envelopeTrigger) {
+    envelopeTrigger.addEventListener("click", () => {
+      setTimeout(applyGuestName, 0);
+      setTimeout(applyGuestName, 100);
+      setTimeout(applyGuestName, 250);
+    });
   }
 
   // WhatsApp (IMPORTANTE: solo números, ejemplo España: 346XXXXXXXX)
-  const phone = "34618717016"; // <- PON AQUÍ TU NÚMERO REAL
+  const phone = "34618717016"; // <- TU NÚMERO REAL, solo dígitos
 
   const message = guestName
     ? `Hola, soy ${guestName} y quiero confirmar mi asistencia a la boda de Diana y Sergio.`
@@ -209,7 +227,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   const waBtn = document.getElementById("rsvp-wa");
-  if (waBtn) {
-    waBtn.href = waUrl;
-  }
+  if (waBtn) waBtn.href = waUrl;
 })();
