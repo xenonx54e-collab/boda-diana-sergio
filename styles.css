@@ -1204,7 +1204,7 @@ h2 {
     position: absolute;
     inset: 0;                   /* 🔑 NO sobresale */
     background: url("img/deco-photo-frame.png") no-repeat center;
-    background-size: 112%;
+    background-size: 100%;
     opacity: 0.28;
     pointer-events: none;
     z-index: 0;
@@ -1300,4 +1300,37 @@ h2 {
 /* Tarjetas por encima del sobre (sin moverlas) */
 .invite-cards {
   z-index: 10;
+}
+/* ===========================
+   NÚMERO DE CUENTA
+   =========================== */
+
+.wedding-account-card {
+  text-align: center;
+  padding: 26px 22px;
+  background: #fff;
+  border: 1px solid rgba(214, 182, 142, 0.8);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.wedding-account-number {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.12em;
+  color: var(--deep);
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .wedding-account-card {
+    padding: 22px 16px;
+  }
+
+  .wedding-account-number {
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+  }
 }
